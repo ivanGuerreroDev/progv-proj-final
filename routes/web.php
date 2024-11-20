@@ -3,6 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FilesClusterController;
 use Illuminate\Support\Facades\Route;
+use Opcodes\LogViewer\LogViewerController;
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/logs', [LogViewerController::class, 'index'])->name('log-viewer.index');
+});
+
 
 Route::get('/', function () {
     return view('welcome');
