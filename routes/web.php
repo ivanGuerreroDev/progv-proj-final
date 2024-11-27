@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FilesClusterController;
+use App\Http\Controllers\MapReduceController;
 use Illuminate\Support\Facades\Route;
 use Opcodes\LogViewer\LogViewerController;
 
@@ -27,6 +28,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/files-cluster', [FilesClusterController::class, 'upload'])->name('filesCluster.upload');
     Route::post('/files-cluster/download', [FilesClusterController::class, 'download'])->name('filesCluster.download');
     Route::get('/files-cluster/delete', [FilesClusterController::class, 'delete'])->name('filesCluster.delete');
+
+    /*
+    * Data Debugger routes
+    */
+    Route::get('/data-debugger', [MapReduceController::class, 'index'])->name('mapReduce');
+    Route::post('/data-debugger', [MapReduceController::class, 'executeMapReduceApp'])->name('mapReduce.execute');
+    Route::post('/data-debugger/save-output', [MapReduceController::class, 'saveMapReduceOutput'])->name('mapReduce.saveToDb');
 
     /*
     * Profile routes

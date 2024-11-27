@@ -15,7 +15,7 @@ class FilesClusterController extends Controller
     public function list(Request $request): View
     {
         $hdfs = new Cli();
-        $dir_arg = '/tmp';
+        $dir_arg = '/';
         $path_query = $request->query('path');
         if ($path_query) {
             $dir_arg = $path_query;

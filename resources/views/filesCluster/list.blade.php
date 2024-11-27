@@ -16,7 +16,7 @@
                     <button type="submit" class="button">Upload</button>
                 </form>
                 <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-200 leading-tight mb-4">List of Files</h3>
-                @if ($route != "/tmp")
+                @if ($route != "/")
                     <a href="{{ route('filesCluster') }}?action=back&path={{$route}}" class="btn btn-info">Back</a>
                 @endif
                 <div class="box mx-5 mb-5">
@@ -34,7 +34,11 @@
                                     @if ($file["type"] == "FILE")
                                         {{ $file["name"] }}
                                     @else
-                                        <a href="{{ route('filesCluster') }}?path={{$route}}/{{ $file['name'] }}">{{ $file["name"] }}</a>
+                                        @if ($route == "/")
+                                            <a href="{{ route('filesCluster') }}?path={{$route}}{{$file['name']}}">{{ $file["name"] }}</a>
+                                        @else
+                                            <a href="{{ route('filesCluster') }}?path={{$route}}/{{ $file['name'] }}">{{ $file["name"] }}</a>
+                                        @endif
                                     @endif
                                 </td>
                                 <td>

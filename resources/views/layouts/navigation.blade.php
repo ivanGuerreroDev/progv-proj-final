@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('filesCluster')" :active="request()->routeIs('filesCluster')">
                         {{ __('Files Cluster') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('mapReduce')" :active="request()->routeIs('mapReduce')">
+                        {{ __('Data debugger') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -77,6 +80,11 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('filesCluster')" :active="request()->routeIs('filesCluster')">
                 {{ __('Files Cluster') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('mapReduce')" :active="request()->routeIs('mapReduce')">
+                {{ __('Data Debugger') }}
             </x-responsive-nav-link>
         </div>
 
