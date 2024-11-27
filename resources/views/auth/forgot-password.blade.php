@@ -16,10 +16,20 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- Recovery Method Selector -->
+        <div class="mt-4">
+            <label for="method">{{ __('Método de recuperación') }}</label>
+            <select name="method" id="method" required class="block mt-1 w-full">
+                <option value="email">{{ __('Correo Electrónico') }}</option>
+                <option value="token">{{ __('Token') }}</option>
+            </select>
+        </div>
+
         <div class="flex items-center justify-end mt-4">
             <x-primary-button>
-                {{ __('Email Password Reset Link') }}
+                {{ __('Enviar enlace de recuperación') }}
             </x-primary-button>
         </div>
     </form>
 </x-guest-layout>
+

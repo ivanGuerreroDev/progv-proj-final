@@ -12,7 +12,6 @@
                 <form action="{{ route('filesCluster.upload') }}" method="POST" enctype="multipart/form-data" class="p-6 text-gray-900 dark:text-gray-100">
                     @csrf
                     <input type="file" name="file" class="form-control">
-                    <input type="hidden" name="path" value="{{ $route }}">
                     <button type="submit" class="button">Upload</button>
                 </form>
                 <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-200 leading-tight mb-4">List of Files</h3>
@@ -20,16 +19,19 @@
                     <a href="{{ route('filesCluster') }}?action=back&path={{$route}}" class="btn btn-info">Back</a>
                 @endif
                 <div class="box mx-5 mb-5">
-                    <table class="table w-full">
+                    <table class="table">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Actions</th>
+                                <th>File Name</th>
+                                <th>Download</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($files as $file)
                             <tr>
+                                <td>{{ $file->file_name }}</td>
+                                <td><a href="{{ route('filesCluster.download', $file->id) }}" class="btn btn-info">Download</a></td>
                                 <td>
                                     @if ($file["type"] == "FILE")
                                         {{ $file["name"] }}

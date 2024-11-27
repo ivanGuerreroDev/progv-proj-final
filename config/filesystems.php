@@ -27,10 +27,7 @@ return [
     | Supported drivers: "local", "ftp", "sftp", "s3"
     |
     */
-    'temp' => [
-        'driver' => 'local',
-        'root' => storage_path('app/temp'),
-    ],
+
     'disks' => [
 
         'local' => [
