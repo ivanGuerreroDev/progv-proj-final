@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function () {
     */
     Route::get('/files-cluster', [FilesClusterController::class, 'list'])->name('filesCluster');
     Route::post('/files-cluster', [FilesClusterController::class, 'upload'])->name('filesCluster.upload');
+    Route::post('/files-cluster/download', [FilesClusterController::class, 'download'])->name('filesCluster.download');
+    Route::get('/files-cluster/delete', [FilesClusterController::class, 'delete'])->name('filesCluster.delete');
 
     /*
     * Profile routes
