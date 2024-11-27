@@ -13,7 +13,7 @@
 
                     <!-- Botón con color rojo que destaca -->
                     <div class="mt-6">
-                        <a href="/log-viewer"
+                        <a href="{{ route('log-viewer.index') }}"
                            class="btn btn-lg btn-danger text-white font-bold py-4 px-8 rounded-full shadow-lg hover:bg-red-700 transition duration-300">
                             Ver Logs
                         </a>
@@ -23,3 +23,4 @@
         </div>
     </div>
 </x-app-layout>
+
